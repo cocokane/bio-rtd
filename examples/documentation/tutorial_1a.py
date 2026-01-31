@@ -14,7 +14,7 @@ i_start, i_end = utils.vectors.true_start_and_end(y > 0.1 * y.max())
 i_max = y.argmax()
 
 # Plot.
-p = figure(plot_width=690, plot_height=350, title="Measurements",
+p = figure(width=690, height=350, title="Measurements",
            x_axis_label="t [min]", y_axis_label="c [mg/mL]")
 p.line(t, y_noisy, line_width=2, color='green', alpha=0.6,
        legend_label='c [mg/mL]')

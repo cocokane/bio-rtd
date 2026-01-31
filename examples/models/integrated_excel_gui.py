@@ -379,7 +379,7 @@ def plot_profiles(_rtd_model):
     for i, uo in enumerate([_rtd_model.inlet, *_rtd_model.dsp_uo_chain]):
         f, c = uo.get_result()  # get profiles
         # Prepare figure.
-        plt = figure(plot_width=690, plot_height=300, title=uo.gui_title,
+        plt = figure(width=690, height=300, title=uo.gui_title,
                      tools="crosshair,reset,save,wheel_zoom,box_zoom,hover",
                      x_axis_label="t [h]", y_axis_label="c [mg/mL]")
         plt.extra_y_ranges = {'f': Range1d(0, f.max() * 1.1)}

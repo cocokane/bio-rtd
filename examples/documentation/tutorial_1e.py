@@ -29,7 +29,7 @@ rtd_model = RtdModel(inlet, dsp_uo_chain=[ft_uo_1, ft_uo_2])
 rtd_model.recalculate()
 
 # Plot.
-p = figure(plot_width=690, plot_height=350,
+p = figure(width=690, height=350,
            title="Model with 2 unit operations - Breakthrough",
            x_axis_label="t [min]", y_axis_label="c [mg/mL]")
 p.line(t, inlet.get_result()[1][0], line_width=2, color='black',

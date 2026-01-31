@@ -77,7 +77,7 @@ f_out, c_out = uf_df.evaluate(f, c)
 # ## FIGURES ##
 
 # Plot results.
-p1 = figure(plot_width=690, plot_height=350, title="UfDf",
+p1 = figure(width=690, height=350, title="UfDf",
             x_axis_label="t [min]", y_axis_label="c [mg/mL]")
 # Add new axis for flow rate to the right.
 p1.extra_y_ranges = {'f': Range1d(0, max(f.max(), f_out.max()) * 1.1)}
@@ -108,7 +108,7 @@ p1.y_range.end = max(c[0:1].max(), c_out[0:1].max()) * 1.5
 p1.legend.location = "center_right"
 
 # Plot results.
-p2 = figure(plot_width=690, plot_height=350, title="UfDf",
+p2 = figure(width=690, height=350, title="UfDf",
             x_axis_label="t [min]", y_axis_label="c [mM]")
 # Add new axis for flow rate to the right.
 p2.extra_y_ranges = {'f': Range1d(0, max(f.max(), f_out.max()) * 1.5)}

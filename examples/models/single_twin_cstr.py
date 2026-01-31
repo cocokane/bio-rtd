@@ -41,7 +41,7 @@ f_out, c_out = a2cstr.evaluate(f_in, c_in)
 
 
 def make_plot(f, c, title_extra):
-    p1 = figure(plot_width=695, plot_height=350,
+    p1 = figure(width=695, height=350,
                 title=f"TwoAlternatingCSTRs - {title_extra}",
                 x_axis_label="t [min]", y_axis_label="c [mg/mL]")
     # Add flow rate axis.

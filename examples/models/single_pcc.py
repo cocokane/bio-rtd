@@ -31,7 +31,7 @@ pcc.log.log_level = pcc.log.ERROR
 f_out, c_out = pcc.evaluate(f, c)
 
 """Plot inlet and outlet profiles."""
-p1 = figure(plot_width=695, plot_height=350, title="PCC",
+p1 = figure(width=695, height=350, title="PCC",
             x_axis_label="t [min]", y_axis_label="c [mg/mL]")
 # Add new axis for flow rate to the right.
 p1.extra_y_ranges = {'f': Range1d(0, max(f.max(), f_out.max()) * 1.1)}
@@ -67,7 +67,7 @@ data_tree = pcc.log.get_data_tree(pcc.uo_id)
 
 # Elution peak shape.
 y = data_tree['p_elution_peak']
-p2 = figure(plot_width=695, plot_height=350, title="Elution peak shape",
+p2 = figure(width=695, height=350, title="Elution peak shape",
             x_axis_label="t [min]", y_axis_label="p []")
 p2.line(t[:y.size], y, line_width=2, legend_label='elution peak shape')
 # Elution peak collection interval.
@@ -81,7 +81,7 @@ p2.line(data_tree['elution_t'] * np.ones(2), np.ones(2) * y.max(),
 # show(p2)
 
 # Plot breakthrough profile for 2 cycles worth of inlet material.
-p3 = figure(plot_width=695, plot_height=350, title='Binding capacity',
+p3 = figure(width=695, height=350, title='Binding capacity',
             x_axis_label="t [min]", y_axis_label="c / c_load")
 i_cycle = int(round(data_tree["cycle_t"] / dt))
 p3.line(t[:i_cycle * 2], c[0, :i_cycle * 2],
@@ -105,7 +105,7 @@ for i, cycle in enumerate(data_tree['cycles']):
     i_e = cycle['i_cycle_load_end']
 
     y_max = 8.5  # Just so all plots have same y range.
-    pc = figure(plot_width=695, plot_height=350, title='Cycle ' + str(i),
+    pc = figure(width=695, height=350, title='Cycle ' + str(i),
                 x_axis_label="t [min]", y_axis_label="c [mg/mL]")
     # Profiles.
     pc.line(t[i_s:i_e], cycle['f_load'],

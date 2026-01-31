@@ -31,7 +31,7 @@ y = peak_shapes.emg(t, 2, 0.3, 1.0)  # clean signal
 y_noisy = y + (np.random.random(y.shape) - 0.5) * y.max() / 10
 
 # Plot.
-p = figure(plot_width=690, plot_height=350,
+p = figure(width=690, height=350,
            title="Unit Operation - Pulse Response",
            x_axis_label="t [min]", y_axis_label="c [mg/mL]")
 p.line(t, y_noisy, line_width=2, color='green', alpha=0.6,

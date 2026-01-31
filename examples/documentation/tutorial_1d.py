@@ -17,7 +17,7 @@ ft_uo.v_void = 2 * f[0]  # set void volume (rt * flow rate)
 f_out, c_out = ft_uo.evaluate(f, c_in)
 
 # Plot.
-p = figure(plot_width=690, plot_height=350,
+p = figure(width=690, height=350,
            title="Unit Operation - Breakthrough",
            x_axis_label="t [min]", y_axis_label="c [mg/mL]")
 p.line(t, c_out[0], line_width=2, color='black',

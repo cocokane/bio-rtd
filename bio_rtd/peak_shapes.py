@@ -15,6 +15,7 @@ For un-clipped peak, first momentum == `rt_mean`.
 __version__ = '0.7.1'
 __author__ = 'Jure Sencar'
 
+import math as _math
 import typing as _typing
 import numpy as _np
 
@@ -211,7 +212,7 @@ def tanks_in_series(t: _np.ndarray, rt_mean: float, n_tanks: int,
     if n_tanks == 1:
         p = _np.exp(_np.clip(-t / rt_mean, -100, 0)) / rt_mean
     else:
-        p = t ** (n_tanks - 1) / _np.math.factorial(n_tanks - 1) \
+        p = t ** (n_tanks - 1) / _math.factorial(n_tanks - 1) \
             / (rt_mean / n_tanks) ** n_tanks \
             * _np.exp(_np.clip(-t / rt_mean * n_tanks, -100, 0))
 

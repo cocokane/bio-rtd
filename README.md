@@ -1,3 +1,7 @@
+> **Note (January 2025):** This repository is a fork of the original [open-biotech/bio-rtd](https://github.com/open-biotech/bio-rtd). The original codebase was about 6 years old and many things were broken. My friend Manas needed help getting it running, so I used Claude to refactor it so the examples all work. I don't understand most of this code—I can only guarantee that the examples will load. See [README_Examples.md](README_Examples.md) for instructions on running the examples.
+
+---
+
 # bio-rtd library
 **bio-rtd** library is a python library for modeling
 residence time distributions (RTD)

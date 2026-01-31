@@ -82,7 +82,7 @@ class BokehServerGui(UserInterface):
     def _build_header(self):
         header_box = Div(text='<p><h1>' + self.rtd_model.title + '</h1>'
                               + self.rtd_model.desc + '</p>',
-                         style={'font-size': str(self.font_size_pt) + 'pt'})
+                         styles={'font-size': str(self.font_size_pt) + 'pt'})
         header_box.width = self.width
         curdoc().add_root(header_box)
 
@@ -91,7 +91,7 @@ class BokehServerGui(UserInterface):
                             f' style="margin-left:50px"><b>'
                             f'{uo_title} < <it>plot is hidden</it> ></b> '
                             f'</p>',
-                       style={'font-size': str(self.font_size_pt) + 'pt'})
+                       styles={'font-size': str(self.font_size_pt) + 'pt'})
         text_box.width = self.width
         return text_box
 
@@ -201,7 +201,7 @@ class BokehServerGui(UserInterface):
 
     @staticmethod
     def setattr_with_index(obj, attr: str, val):
-        if attr[-1] is ']':
+        if attr[-1] == ']':
             idx = int(attr[attr.find('[') + 1:-1])
             attr = attr[:attr.find('[')]
             attr_v = getattr(obj, attr)
@@ -268,7 +268,7 @@ class BokehServerGui(UserInterface):
 
     @staticmethod
     def getattr_with_index(obj, attr: str):
-        if attr[-1] is ']':
+        if attr[-1] == ']':
             idx = int(attr[attr.find('[') + 1:-1])
             attr = attr[:attr.find('[')]
             return getattr(obj, attr)[idx]
@@ -331,7 +331,7 @@ class BokehServerGui(UserInterface):
                     if type(r.v_init) is tuple \
                     else list(range(len(pars))) if r.v_init is True \
                     else [] if r.v_init is False \
-                    else [getattr(uo, attr) for attr in attrs]
+                    else [i for i, attr in enumerate(attrs) if getattr(uo, attr)]
 
                 if r.gui_type == 'checkbox':
                     uie = CheckboxGroup(labels=pars, active=on_list)
@@ -351,8 +351,8 @@ class BokehServerGui(UserInterface):
         tmp_t = self.re_sample(self._t)
         tmp_zero = tmp_t.copy() * 0
         # Generate plot.
-        plot = figure(plot_height=self.plot_height,
-                      plot_width=self.plot_width,
+        plot = figure(height=self.plot_height,
+                      width=self.plot_width,
                       title=uo.gui_title,
                       tools="crosshair,reset,save,wheel_zoom,box_zoom",
                       x_range=[0, self._t[-1] * self.x_scale_factor],
@@ -427,8 +427,8 @@ class BokehServerGui(UserInterface):
         tmp_t = self.re_sample(self._t)
         tmp_zero = tmp_t.copy() * 0
         # generate plot
-        plot = figure(plot_height=self.plot_height,
-                      plot_width=self.plot_width,
+        plot = figure(height=self.plot_height,
+                      width=self.plot_width,
                       title=uo.gui_title,
                       tools="save",
                       x_range=[0, self._t[-1] * self.x_scale_factor],

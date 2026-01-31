@@ -26,7 +26,7 @@ class FitEmgTest(unittest.TestCase):
         #     t = np.linspace(0, t_peak_end * 5, 10000)
         #     p = peak_shapes.emg(t, rt_mean, sigma, skew)
         #     from bokeh.plotting import figure, show
-        #     plt_1 = figure(plot_width=690, plot_height=350)
+        #     plt_1 = figure(width=690, height=350)
         #     plt_1.line(t, p, line_width=2, color='green')
         #     plt_1.line(t_peak_start * np.ones(2),
         #                np.array([0, p.max()]),
